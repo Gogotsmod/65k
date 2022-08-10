@@ -4,7 +4,7 @@ let text = `${htki} RULES ${htka}
 > Minta maaf ke owner agar tidak terkena pelanggaran 
 `
 const templateButtons = [
-    {index: 1, urlButton: {displayText: 'Youtube', url: 'https://youtube.com/channel/UCACHvReRmw2fxgMutPFCBWg'}},
+    {index: 1, urlButton: {displayText: 'Youtube', url: 'GOGOTShttps://youtube.com/channel/UCSqtTBWsYLGLd1ObFDmrMCA'}},
 ]
 let tm = {
 text: text,

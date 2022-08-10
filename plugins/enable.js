@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
 	const sections = [
    {
-	title: `${dmenub} List Options`,
+	title: `${dmenub} 𝗖𝗟𝗜𝗖𝗞 𝗕𝗘𝗟𝗢𝗪 𝗔𝗡𝗗 𝗖𝗛𝗢𝗢𝗦𝗘`,
 	rows: [
 	    {title: "⦅✨⦆ ✦ Welcome", rowId: `${usedPrefix + command} welcome`},
 	    {title: "⦅🚫⦆ ✦ Delete", rowId: `${usedPrefix + command} delete`},
@@ -14,11 +14,15 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 	{title: "⦅⛔⦆ ✦ Antidelete", rowId: `${usedPrefix + command} antidelete`},
 	{title: "⦅📛⦆ ✦ Antitoxic", rowId: `${usedPrefix + command} antibadword`},
 	{title: "⦅⬆️⦆ ✦ Autolevelup", rowId: `${usedPrefix + command} autolevelup`},
+	{title: "⦅🎶⦆ ✦ Autodelvn", rowId: `${usedPrefix + command} autodelvn`},
+	{title: "⦅🎨⦆ ✦ Autosticker", rowId: `${usedPrefix + command} autosticker`},
 	{title: "⦅🔎⦆ ✦ Detect", rowId: `${usedPrefix + command} detect`},
+	{title: "⦅🔕⦆ ✦ Anti spam", rowId: `${usedPrefix + command} antispam`},
 	{title: "⦅📂⦆ ✦ Document", rowId: `${usedPrefix + command} document`},
 	{title: "⦅👤⦆ ✦ WhiteListMyContact", rowId: `${usedPrefix + command} whitelistmycontact`},
 	{title: "⦅❗⦆ ✦ Restrict", rowId: `${usedPrefix + command} restrict`},
 	{title: "⦅😴⦆ ✦ Nyimak", rowId: `${usedPrefix + command} nyimak`},
+	{title: "⦅🔇⦆ ✦ Anti Call", rowId: `${usedPrefix + command} anticall`},
 	{title: "⦅☑️⦆ ✦ Autoread", rowId: `${usedPrefix + command} autoread`},
 	{title: "⦅💬⦆ ✦ PcOnly", rowId: `${usedPrefix + command} pconly`},
 	{title: "⦅🏢⦆ ✦ GcOnly", rowId: `${usedPrefix + command} gconly`},
@@ -31,7 +35,7 @@ const listMessage = {
   text: ' ',
   footer: botdate,
   title: `*${htki} OPTIONS ${htka}*`,
-  buttonText: "Setting",
+  buttonText: "𝗖𝗟𝗜𝗖𝗞 𝗛𝗘𝗥𝗘❗",
   sections
 }
 
@@ -66,6 +70,27 @@ const listMessage = {
        }
        chat.detect = isEnable
        break
+     case 'autosticker':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.stiker = isEnable
+      break
+    case 'desc':
+      if (!m.isGroup) {
+        if (!isOwner) {
+          global.dfail('group', m, conn)
+          throw false
+        }
+      } else if (!(isAdmin || isOwner)) {
+        global.dfail('admin', m, conn)
+        throw false
+      }
+      chat.descUpdate = isEnable
+      break
     case 'antibadword':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -74,6 +99,14 @@ const listMessage = {
         }
       }
       chat.antiBadword = isEnable
+      break
+    case 'antispam':
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
+      }
+      chat.antispam = isEnable
       break
     case 'delete':
       if (m.isGroup) {
@@ -93,15 +126,23 @@ const listMessage = {
       }
       chat.delete = !isEnable
       break
-    // case 'autodelvn':
-    //   if (m.isGroup) {
-    //     if (!(isAdmin || isOwner)) {
-    //       global.dfail('admin', m, conn)
-    //       throw false
-    //     }
-    //   }
-    //   chat.autodelvn = isEnable
-    //   break
+    case 'anticall':
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
+      }
+      chat.anticall = isEnable
+      break
+    case 'autodelvn':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.autodelvn = isEnable
+      break
      case 'document':
        chat.useDocument = isEnable
        break
@@ -243,7 +284,7 @@ const listMessage = {
       if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage)
       throw false
   }
-  conn.sendButton(m.chat, `*${htki} OPTIONS ${htka}*
+  conn.sendButton(m.chat, `*${htki} SUCSESS ${htka}*
 🗂️ *Type:* ${type} 
 📊 *Status:* Succes ✅
 🎚️ *Options:* ${isEnable ? 'Enable' : 'Disable'}

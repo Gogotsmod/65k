@@ -10,7 +10,7 @@ const anu = {
                         },
        message: {
                     documentMessage: {
-                    title: 'YT: FANGZ GANZ', 
+                    title: 'YT: GOGOTS MOD', 
                     jpegThumbnail: './thumbnail.jpg'
                           }
                         }

@@ -5,7 +5,7 @@ let text = `${htki} RULES ${htka}
 ┃• Telpon/VC Owner = Blok Otomatis
 `
 const templateButtons = [
-    {index: 1, urlButton: {displayText: 'Youtube', url: 'https://youtube.com/channel/UCACHvReRmw2fxgMutPFCBWg'}},
+    {index: 1, urlButton: {displayText: 'Youtube', url: 'https://youtube.com/channel/UCSqtTBWsYLGLd1ObFDmrMCA'}},
 ]
 let tm = {
 text: text,

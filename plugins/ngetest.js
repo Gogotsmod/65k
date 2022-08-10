@@ -45,7 +45,7 @@ Runtime: ${uptime}`
                {
              quickReplyButton: {
                displayText: 'Jangan Di Pencet',
-               id: 'fangz',
+               id: 'p',
              }
 
            }]

@@ -18,10 +18,10 @@ if (m.isBaileys) return
         if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
             await this.sendMessage(m.chat, { sticker : stc, thumbnail: await( await fetch(pp)).buffer() , contextInfo:{  externalAdReply: { showAdAttribution: true,
 mediaType:  1,
-mediaUrl: 'https://wa.me/6288215689772',
-title: '「 ❔ 」',
+mediaUrl: 'https://wa.me/6281223163244',
+title: '「 NGAPAIN NGE TAG ❔ 」',
 body: wm,
-sourceUrl: 'https://fangzbot.websites.co.in/', thumbnail: await( await fetch(pp)).buffer()
+sourceUrl: 'https://youtube.com/channel/UCSqtTBWsYLGLd1ObFDmrMCA', thumbnail: await( await fetch(pp)).buffer()
  //Kalo mau ada pp dari sender/pengirimnya
  //Kalo mau ringan pake global.thumb                                                                                                              
                                                                                                                
